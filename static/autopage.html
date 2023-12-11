@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Авто</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<header class="main-header">
+    <nav class="main-nav">
+        <a class="logo" href="/">
+            <img src="/static/img/service-icon.png" width="32" height="32" alt="Логотип сайта сервиса">
+        </a>
+        <ul class="nav-list">
+            <li class="nav-list-item">
+                <a href="/order">Заказы</a>
+            </li>
+            <li class="nav-list-item">
+                <a href="/auto">Авто</a>
+            </li>
+            <li class="nav-list-item">
+                <a href="/client">Клиент</a>
+            </li>
+        </ul>
+        <div class="auth-buttons">
+            <a href="/logout">Выйти</a>
+        </div>
+    </nav>
+</header>
+<h1>Auto</h1>
+
+<div>
+    <form action="/auto/" method="get">
+        <label for="auto-id">Введите ID автомобиля:</label><br>
+        <input type="text" id="auto-id" name="auto-id"><br>
+        <input type="submit" value="Получить информацию об автомобиле">
+    </form>
+</div>
+<div id="Авто">
+    <h2>Information</h2>
+    <p>ID: {{.AutoId}}</p>
+    <p>Make: {{.Make}}</p>
+    <p>Model: {{.Model}}</p>
+    <p>Year: {{.Year}}</p>
+    <p>Vin: {{.Vin}}</p>
+</div>
+
+</body>
+</html>
+
+
+{{/*<div class="auth-buttons">*/}}
+{{/*    {{if .Authenticated}}*/}}
+{{/*        <span>Привет, {{.UserLogin}}!</span>*/}}
+{{/*        <a href="/logout">Выйти</a>*/}}
+{{/*    {{else}}*/}}
+{{/*        <a href="/login">Войти</a>*/}}
+{{/*        <a href="/register">Регистрация</a>*/}}
+{{/*    {{end}}*/}}
+{{/*</div>*/}}

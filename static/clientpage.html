@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Клиент</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<header class="main-header">
+    <nav class="main-nav">
+        <a class="logo" href="/">
+            <img src="/static/img/service-icon.png" width="32" height="32" alt="Логотип сайта сервиса">
+        </a>
+        <ul class="nav-list">
+            <li class="nav-list-item">
+                <a href="/order">Заказы</a>
+            </li>
+            <li class="nav-list-item">
+                <a href="/auto">Авто</a>
+            </li>
+            <li class="nav-list-item">
+                <a href="/client">Клиент</a>
+            </li>
+        </ul>
+        <div class="auth-buttons">
+            <a href="/logout">Выйти</a>
+        </div>
+    </nav>
+</header>
+<h1>Client</h1>
+<div>
+  <form action="/client/" method="get">
+      <label for="client-id">Введите ID клиента:</label><br>
+      <input type="text" id="client-id" name="client-id"><br>
+      <input type="submit" value="Получить информацию о клиенте">
+  </form>
+    <div id="Клиент">
+        <h2>Information</h2>
+        <p>ID: {{.ClientId}}</p>
+        <p>Name: {{.Name}}</p>
+        <p>Contact info: {{.ContactInfo}}</p>
+        <p>Address: {{.Address}}</p>
+        <h1>Add your data</h1>
+        <form action="/client/submit" method="post">
+            <label for="Name">Имя:</label><br>
+            <input type="text" id="Name" name="Name"><br>
+            <label for="ContactInfo">Контактные данные:</label><br>
+            <input type="text" id="ContactInfo" name="ContactInfo"><br>
+            <label for="Address">Адрес:</label><br>
+            <input type="text" id="Address" name="Address"><br>
+            <input type="submit" value="Отправить">
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Заказ</title>
+</head>
+<body>
+<header class="main-header">
+    <nav class="main-nav">
+        <a class="logo" href="/">
+            <img src="/static/img/service-icon.png" width="32" height="32" alt="Логотип сайта сервиса">
+        </a>
+        <ul class="nav-list">
+            <li class="nav-list-item">
+                <a href="/order">Заказы</a>
+            </li>
+            <li class="nav-list-item">
+                <a href="/auto">Авто</a>
+            </li>
+            <li class="nav-list-item">
+                <a href="/client">Клиент</a>
+            </li>
+        </ul>
+        <div class="auth-buttons">
+            <a href="/logout">Выйти</a>
+        </div>
+    </nav>
+</header>
+<h1>Order</h1>
+
+<div>
+  <form action="/order/" method="get">
+    <label for="Client-client-id">Введите ID клиента:</label><br>
+    <input type="text" id="Client-client-id" name="Client-client-id"><br>
+    <input type="submit" value="Получить информацию о заказе">
+  </form>
+</div>
+<div id="Заказ">
+    <h2>Information</h2>
+    <p>Date: {{.Order.Date}}</p>
+    <p>Description: {{.Order.Description}}</p>
+    <p>Status: {{.Order.Status}}</p>
+    <p>Client name: {{.Client.Name}}</p>
+</div>
+
+</body>
+</html>
