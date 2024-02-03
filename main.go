@@ -35,6 +35,10 @@ func main() {
 	login.HandleFunc("", DatabaseHandlers.LoginPageHandler)
 	login.HandleFunc("/", authentication.LoginHandler(db, hasher))
 
+	search := router.PathPrefix("/search").Subrouter()
+	search.HandleFunc("", DatabaseHandlers.SearchPageHandler)
+	search.HandleFunc("/", DatabaseHandlers.SearchHandler(db))
+
 	register := router.PathPrefix("/register").Subrouter()
 	register.HandleFunc("", DatabaseHandlers.RegisterPageHandler)
 	register.HandleFunc("/", authentication.RegisterHandler(db, hasher))
